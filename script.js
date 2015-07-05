@@ -25,17 +25,13 @@ $(function() {
     $newPosts.prepend($newPost);
   };
 
-  var $newEntry = $('#new-Entry');
-
-  
+  var $newEntry = $('#new-Entry');  
   var $newPosts = $('#new-Posts');
-
-  
   var newPostTemplate = _.template($('#post-template').html());
 
   
-  _.each(NewPost.all, function (newpost, index) {
-    newpost.render();
+  _.each(NewPost.all, function (NewPost, index) {
+    NewPost.render();
   });
 
   
@@ -43,21 +39,21 @@ $(function() {
     event.preventDefault();
 
   
-    var $userName = $('#user-name').val();
-    var $userLoc = $('#user-location').val();
-    var $userPost = $('#user-post').val();
-    var newBlog = new NewPost($userName, $userLoc, $userPost);
-    var $postCont = $('#newPostContainer')
+  var $userName = $('#user-name').val();
+  var $userLoc = $('#user-location').val();
+  var $userPost = $('#user-post').val();
+  var newBlog = new NewPost($userName, $userLoc, $userPost);
+  var $postCont = $('#newPostContainer')
 
   
-    newBlog.save();
+  newBlog.save();
 
-  
-    newBlog.render();
 
-  
-    $newEntry[0].reset();
-    $('#user-name').focus();
+  newBlog.render();
+
+
+  $newEntry[0].reset();
+  $('#user-name').focus();
   });
 
   
@@ -65,29 +61,31 @@ $(function() {
     $(this).toggleClass('removePost');
   });
 
+  var $blogPost = $('.blogPost')
 
-
-  
-  $newPosts.on("click", ".delete", function () {
-    var $blogPost = $(this).closest(".blogPost");
-    var index = $blogPost.attr('data-index');
-
-    $('newPostContainer').on("click", function(event) {
+  $blogPost.on("click", function () {
     event.preventDefault();
+    var $blogPosts = $(this).closest(".blogPost");
+    var index = $blogPost.attr('data-index');
     $(this).fadeOut("slow");
+
+/*  $('#new-Posts').on("click", function(event) {
+  event.preventDefault();
+  this.fadeOut("slow");
   });
-
+*/
   
-    NewPost.all.splice(index, 1);
-    console.log(NewPost.all);
-
-  
-    $newPosts.remove();
+  NewPost.all.splice(index, 1);
+  console.log(NewPost.all);
 
 
-    $('.blogPost').each(function(index) {
-      $(this).attr('data-index', index);
-    });
+  $blogPost.remove();
+
+
+  $('.blogPost').each(function(index) {
+    $(this).attr('data-index', index);
+ /* });*/
   });
+});
 });
 
