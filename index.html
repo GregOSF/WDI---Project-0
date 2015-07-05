@@ -10,6 +10,8 @@
   <!-- custom styles -->
   <link rel="stylesheet" type="text/css" href="style.css">
 
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+
   <title>Trek Blog</title>
 </head>
 <body>
@@ -18,11 +20,11 @@
   </header>
   <div class="container">
     <div class="row" id="hold-all">
-      <div class="col-lg-4 panel" id="entry-form">
-        <h1>HOW WAS YOUR HIKE TODAY?</h1>
+      <div class="col-md-4" id="entry-form">
+        <h1>Post About Your Hike!</h1>
         <form class="text-center" id="new-Entry">
             <div class="form-group">
-              <input class="form-control" id="user-name" placeholder="What's Your Name?" autofocus>
+              <input class="form-control" id="user-name" placeholder="Enter Your User Name" autofocus>
             </div>
             <div class="form-group">
               <input class="form-control" id="user-location" placeholder="Where Did You Hike Today?">
@@ -35,8 +37,10 @@
             </div>
             <hr>
           </form> 
+
       </div>
-      <div class="col-lg-8 panel" id="newPostContainer">
+
+      <div class="col-md-8" id="newPostContainer">
         <div id="new-Posts">
         </div>
       </div>
@@ -57,25 +61,26 @@
   <script type="text/javascript" src="script.js"></script>
 
   <!-- underscore template -->
-  <script type="text/template" id="post-template">
+  <script type="text/template" id="post-template">  
     <div class="blogPost">
       <p>
-        Trekker: <%= user %>
+        <span style="font-weight:bold">Trekker:</span> <%= user %>
       </p>
       <p>
-       Where Trekked: <%= loc %>
+       <span style="font-weight:bold">Where Trekked:</span> <%= loc %>
       </p>
       <p>
-       About My Trek: <%= post %>
+       <span style="font-weight:bold">About My Trek:</span> <%= post %>
       </p>
       <p>
-        <button type="button" class="btn btn-default btn-lg removeButton">
-        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remove Post
+        <button type="button" class="btn btn-default btn-sm removeButton">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Remove Post From List
         </button>
       </p>
       <hr>
     </div>
   </script>
+
 
 </body>
 </html>
