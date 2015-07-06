@@ -8,6 +8,7 @@ $(function() {
   }
 
   
+
   NewPost.all = [
         new NewPost('Jack', 'Patagonia', 'Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.'),
         new NewPost('Alice', 'Himalayas', 'Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.')
@@ -22,6 +23,7 @@ $(function() {
     var $newPost = $(newPostTemplate(this));
     this.index = NewPost.all.indexOf(this);
     $newPost.attr('data-index', this.index);
+
     $newPosts.prepend($newPost);
   };
 
@@ -57,11 +59,12 @@ $(function() {
   });
 
   
-  $newPosts.on('click', '.blogPost', function() {
+/*  $newPosts.on('click', '.blogPost', function() {
     $(this).toggleClass('removePost');
-  });
+  });*/
 
   var $blogPost = $('.blogPost')
+  var $removeButton = $('.removeButton')
 
   $blogPost.on("click", function (event) {
     event.preventDefault();
@@ -88,7 +91,7 @@ $(function() {
   });
 });
 
-  
+
 
 });
 
