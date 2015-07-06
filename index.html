@@ -40,7 +40,7 @@
 
       </div>
 
-      <div class="col-md-8" id="newPostContainer">
+      <div class="col-md-8 fixed-panel" id="newPostContainer">
         <div id="new-Posts">
         </div>
       </div>
@@ -61,7 +61,8 @@
   <script type="text/javascript" src="script.js"></script>
 
   <!-- underscore template -->
-  <script type="text/template" id="post-template">  
+  <script type="text/template" id="post-template">
+
     <div class="blogPost">
       <p>
         <span style="font-weight:bold">Trekker:</span> <%= user %>
@@ -72,11 +73,9 @@
       <p>
        <span style="font-weight:bold">About My Trek:</span> <%= post %>
       </p>
-      <p>
-        <button type="button" class="btn btn-default btn-sm removeButton">
+      <button type="button" class="btn btn-default btn-sm removeButton">
         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Remove Post From List
         </button>
-      </p>
       <hr>
     </div>
   </script>
